@@ -1,6 +1,6 @@
 'use client'
 import { SignIn, SignOutButton, useUser } from "@clerk/nextjs";
-import DataDisplay from "@/components/Landing/DataDisplay";
+import { useEffect, useState } from "react";
 
 export default function Home() {
   const { isSignedIn, user } = useUser();
@@ -25,7 +25,6 @@ export default function Home() {
         <div>
           <p>Welcome, {user?.firstName}!</p>
           <SignOutButton />
-          <DataDisplay />
         </div>
     <div>
       <h2>Users from MongoDB:</h2>
