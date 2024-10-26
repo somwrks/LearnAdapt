@@ -9,32 +9,37 @@ export default function Home() {
 
   useEffect(() => {
     async function fetchData() {
-      const nextResponse = await fetch('/api/getUsers');
-      const nextData = await nextResponse.json();
-      setNextMessage(nextData);
+      try {
+        const nextResponse = await fetch('/api/hello');
+        const nextData = await nextResponse.json();
+        setNextMessage(nextData); // Access the message property
 
-      const flaskResponse = await fetch('/api/python/hello');
-      const flaskData = await flaskResponse.json();
-      setFlaskMessage(flaskData.message);
+        const flaskResponse = await fetch('/api/python/hello');
+        const flaskData = await flaskResponse.json();
+        setFlaskMessage(flaskData.message);
+      } catch (error) {
+        console.error('Error fetching data:', error);
+      }
     }
     fetchData();
   }, []);
+
   return (
     <main className="flex min-h-screen flex-col items-center justify-between p-24">
       <h1>Next.js with Clerk, MongoDB, and Flask</h1>
+      {isSignedIn ? (
         <div>
           <p>Welcome, {user?.firstName}!</p>
           <SignOutButton />
         </div>
-    <div>
-      <h2>Users from MongoDB:</h2>
-      <ul>
-        Message from Nextjs: {}
-      </ul>
-      <ul>
-        Message from Nextjs: {flaskMessage}
-      </ul>
-    </div>
+      ) : (
+        <SignIn />
+      )}
+      <div>
+        <h2>Messages:</h2>
+        <p>Message from Next.js: {nextMessage}</p>
+        <p>Message from Flask: {flaskMessage}</p>
+      </div>
     </main>
   );
 }
