@@ -1,4 +1,5 @@
 'use client'
+import Landing from "@/components/Landing";
 import { SignIn, SignOutButton, useUser } from "@clerk/nextjs";
 import { useEffect, useState } from "react";
 
@@ -28,10 +29,7 @@ export default function Home() {
     <main className="flex min-h-screen flex-col items-center justify-between p-24">
       <h1>Next.js with Clerk, MongoDB, and Flask</h1>
       {isSignedIn ? (
-        <div>
-          <p>Welcome, {user?.firstName}!</p>
-          <SignOutButton />
-        </div>
+        <Landing/>
       ) : (
         <SignIn />
       )}
