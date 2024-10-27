@@ -1,5 +1,6 @@
 import React from 'react';
 import { Brain, Menu, X } from 'lucide-react';
+import { SignInButton } from '@clerk/nextjs';
 
 export default function Navbar() {
   const [isOpen, setIsOpen] = React.useState(false);
@@ -18,7 +19,8 @@ export default function Navbar() {
             <a href="#how-it-works" className="text-gray-700 hover:text-indigo-600 transition">How it Works</a>
             <a href="#testimonials" className="text-gray-700 hover:text-indigo-600 transition">Testimonials</a>
             <button className="bg-indigo-600 text-white px-6 py-2 rounded-full hover:bg-indigo-700 transition">
-              Get Started
+            <SignInButton />
+
             </button>
           </div>
 

@@ -27,16 +27,8 @@ export default function Home() {
 
   return (
     <main>
-      {isSignedIn ? (
         <Landing/>
-      ) : (
-        <SignIn />
-      )}
-      <div>
-        <h2>Messages:</h2>
-        <p>Message from Next.js: {nextMessage}</p>
-        <p>Message from Flask: {flaskMessage}</p>
-      </div>
+      
     </main>
   );
 }
