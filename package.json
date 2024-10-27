@@ -15,8 +15,10 @@
     "concurrently": "^9.0.1",
     "lucide-react": "^0.453.0",
     "next": "14.2.14",
+    "openai": "^4.68.4",
     "react": "^18",
     "react-dom": "^18",
+    "recharts": "^2.13.0",
     "vercel": "^37.6.1"
   },
   "devDependencies": {
